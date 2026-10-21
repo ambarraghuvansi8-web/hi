@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  /* Two-Color Architectural Palette: Slate Blue (#3F5468) and Muted Brass (#8C6B38) */
+  --color-slate-blue: #3f5468;
+  --color-slate-light: #526b83;
+  --color-slate-tint: #f2f5f8;
+  --color-slate-tint-hover: #e6ecf2;
+
+  --color-brass: #8c6b38;
+  --color-brass-light: #a68147;
+  --color-brass-tint: #fbf8f3;
+  --color-brass-tint-hover: #f5eedf;
+
+  /* Light Theme (Default) */
+  --bg-app: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f4f6f8;
+  --bg-card-elevated: #ffffff;
+
+  --text-main: #1d252d;
+  --text-muted: #5e6d7d;
+  --text-faint: #8896a6;
+
+  --border-subtle: #e5e9ee;
+  --border-focus: #3f5468;
+
+  --map-bg: #f5f7f9;
+  --map-grid: #e7ecf1;
+  --map-node-bg: #ffffff;
+}
+
+.dark {
+  /* Dark Theme (Optional) */
+  --bg-app: #12171d;
+  --bg-card: #1a222b;
+  --bg-card-subtle: #202a35;
+  --bg-card-elevated: #242f3b;
+
+  --text-main: #e8ecf2;
+  --text-muted: #95a5b5;
+  --text-faint: #637587;
+
+  --border-subtle: #2a3746;
+  --border-focus: #8c6b38;
+
+  --map-bg: #151c24;
+  --map-grid: #1e2833;
+  --map-node-bg: #1a222b;
+
+  --color-slate-tint: #1c2631;
+  --color-slate-tint-hover: #23303d;
+  --color-brass-tint: #2a2418;
+  --color-brass-tint-hover: #352c1e;
+}
+
+@theme {
+  --color-primary: var(--color-brass);
+  --color-primary-light: var(--color-brass-light);
+  --color-primary-tint: var(--color-brass-tint);
+  --color-secondary: var(--color-slate-blue);
+  --color-secondary-light: var(--color-slate-light);
+  --color-secondary-tint: var(--color-slate-tint);
+
+  --color-app-bg: var(--bg-app);
+  --color-card: var(--bg-card);
+  --color-card-subtle: var(--bg-card-subtle);
+  --color-text: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border-subtle);
+
+  --font-sans: "IBM Plex Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Clear, visible keyboard focus for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle Traffic Flow Pulsing Animations (Speed proportional to edge capacity) */
+@keyframes trafficFlowPulse {
+  0% {
+    stroke-dashoffset: 48;
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+}
+
+@keyframes trafficAuraPulse {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Network Disconnection Visual Alert Pulse */
+@keyframes networkSeveredPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    transform: scale(1.008);
+  }
+}
+
+.animate-network-severed {
+  animation: networkSeveredPulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+

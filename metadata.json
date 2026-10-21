@@ -1,0 +1,6 @@
+{
+  "name": "FlowSpectral — Urban Road Network Structural Analyzer",
+  "description": "Professional linear algebra analytics platform for urban traffic engineers and planners, applying matrix rank, Gaussian elimination, and eigenvector centrality to city road networks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

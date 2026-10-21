@@ -1,0 +1,86 @@
+import { NetworkPreset } from '../types/network';
+
+export const NETWORK_PRESETS: NetworkPreset[] = [
+  {
+    id: 'central-hub-5',
+    name: 'Central Hub City (5 intersections)',
+    category: 'Radial hub',
+    description: 'A busy downtown intersection connected to four neighborhood crossroads.',
+    nodes: [
+      { id: 0, code: 'v₀', name: 'Central Hub', subtitle: 'Downtown', x: 320, y: 190 },
+      { id: 1, code: 'v₁', name: 'North Boulevard', subtitle: 'North', x: 320, y: 70 },
+      { id: 2, code: 'v₂', name: 'East Avenue', subtitle: 'East', x: 510, y: 190 },
+      { id: 3, code: 'v₃', name: 'South Square', subtitle: 'South', x: 320, y: 310 },
+      { id: 4, code: 'v₄', name: 'West Arterial', subtitle: 'West', x: 130, y: 190 },
+    ],
+    matrix: [
+      [0, 1, 1, 1, 1],
+      [1, 0, 1, 0, 1],
+      [1, 1, 0, 1, 0],
+      [1, 0, 1, 0, 0],
+      [1, 1, 0, 0, 0],
+    ],
+  },
+  {
+    id: 'weighted-corridor-5',
+    name: 'Expressway Corridor (5 intersections)',
+    category: 'Multi-lane arterial',
+    description: 'A central district connected to an eastern commercial avenue by wider multi-lane roads.',
+    nodes: [
+      { id: 0, code: 'v₀', name: 'Central Hub', subtitle: 'Downtown', x: 320, y: 190 },
+      { id: 1, code: 'v₁', name: 'North Boulevard', subtitle: 'North', x: 320, y: 70 },
+      { id: 2, code: 'v₂', name: 'East Avenue', subtitle: 'East', x: 510, y: 190 },
+      { id: 3, code: 'v₃', name: 'South Square', subtitle: 'South', x: 320, y: 310 },
+      { id: 4, code: 'v₄', name: 'West Arterial', subtitle: 'West', x: 130, y: 190 },
+    ],
+    matrix: [
+      [0, 1, 2, 1, 1],
+      [1, 0, 1, 0, 1],
+      [2, 1, 0, 1.5, 0],
+      [1, 0, 1.5, 0, 0],
+      [1, 1, 0, 0, 0],
+    ],
+  },
+  {
+    id: 'redundant-bipartite-5',
+    name: 'Twin Bridges Loop (5 intersections)',
+    category: 'Duplicate routes',
+    description: 'North and south city districts connected across a river with twin bridge routes.',
+    nodes: [
+      { id: 0, code: 'v₀', name: 'Union Station', subtitle: 'Transit', x: 320, y: 190 },
+      { id: 1, code: 'v₁', name: 'North Gate', subtitle: 'North', x: 320, y: 70 },
+      { id: 2, code: 'v₂', name: 'Harbor Parkway', subtitle: 'Harbor', x: 500, y: 190 },
+      { id: 3, code: 'v₃', name: 'South Depot', subtitle: 'South', x: 320, y: 310 },
+      { id: 4, code: 'v₄', name: 'West Viaduct', subtitle: 'West', x: 140, y: 190 },
+    ],
+    matrix: [
+      [0, 1, 1, 1, 1],
+      [1, 0, 1, 0, 0],
+      [1, 1, 0, 1, 1],
+      [1, 0, 1, 0, 0],
+      [1, 0, 1, 0, 0],
+    ],
+  },
+  {
+    id: 'downtown-grid-6',
+    name: 'Downtown Street Grid (6 intersections)',
+    category: 'Street grid',
+    description: 'A six-block street grid with parallel avenues and easy detours.',
+    nodes: [
+      { id: 0, code: 'v₀', name: 'Broadway & 1st', subtitle: 'NW', x: 165, y: 105 },
+      { id: 1, code: 'v₁', name: 'Midtown North', subtitle: 'Mid-N', x: 320, y: 105 },
+      { id: 2, code: 'v₂', name: 'Financial District', subtitle: 'NE', x: 475, y: 105 },
+      { id: 3, code: 'v₃', name: 'Civic Plaza', subtitle: 'SW', x: 165, y: 275 },
+      { id: 4, code: 'v₄', name: 'Midtown South', subtitle: 'Mid-S', x: 320, y: 275 },
+      { id: 5, code: 'v₅', name: 'Waterfront Market', subtitle: 'SE', x: 475, y: 275 },
+    ],
+    matrix: [
+      [0, 1, 0, 1, 1, 0],
+      [1, 0, 1, 0, 1, 0],
+      [0, 1, 0, 0, 1, 1],
+      [1, 0, 0, 0, 1, 0],
+      [1, 1, 1, 1, 0, 1],
+      [0, 0, 1, 0, 1, 0],
+    ],
+  },
+];
